@@ -13,6 +13,9 @@ requirements:
   build:
     - ${{ compiler("c") if win }}
     - ${{ compiler("fortran") }}
+  ignore_run_exports:
+    from_package:
+      - ${{ compiler("c") if win }}
 
 tests:
   - script:
