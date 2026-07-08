@@ -11,11 +11,11 @@ build:
 
 requirements:
   build:
-    - ${{ compiler("c") if win }}
+    - ${{ compiler("c") if win }}  # Needed on Windows to activate the MSVC/SDK linker paths used by flang 5.
     - ${{ compiler("fortran") }}
   ignore_run_exports:
     from_package:
-      - ${{ compiler("c") if win }}
+      - ${{ compiler("c") if win }}  # The C compiler is only used for build-time linker activation.
 
 tests:
   - script:
@@ -32,7 +32,7 @@ about:
   license: Apache-2.0
   license_file: LICENSE
   summary: "Biomolecular Illustration Tool"
-  description: >
+  description: |
     I L L U S T R A T E
 
     Biomolecular Illustration copyright 2019 David S Goodsell
