@@ -8,17 +8,14 @@ source:
 
 build:
   number: 1
-  skip:
-    - win
-  script: |
-    set -exo pipefail
-    export LDFLAGS="${LDFLAGS} -L${BUILD_PREFIX}/lib"
-    mkdir -p ${PREFIX}/bin
-    ${FC} illustrate.f -o ${PREFIX}/bin/illustrate
 
 requirements:
   build:
+    - ${{ compiler("c") if win }}
     - ${{ compiler("fortran") }}
+  ignore_run_exports:
+    from_package:
+      - ${{ compiler("c") if win }}
 
 tests:
   - script:
