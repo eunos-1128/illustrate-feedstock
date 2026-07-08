@@ -1,5 +1,5 @@
 @echo on
 setlocal EnableExtensions
 
-if not exist "%PREFIX%\bin" mkdir "%PREFIX%\bin"
-"%FC%" illustrate.f -o "%PREFIX%\bin\illustrate.exe"
+if not exist "%LIBRARY_BIN%" mkdir "%LIBRARY_BIN%"
+"%FC%" illustrate.f -o "%LIBRARY_BIN%\illustrate.exe"
